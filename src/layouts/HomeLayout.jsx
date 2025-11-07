@@ -19,13 +19,13 @@ export default function HomeLayout() {
         </nav>
       </header>
       <main className="gap-5 w-11/12 mx-auto my-3 grid grid-cols-12">
-        <aside className="col-span-3">
+        <aside className="col-span-3 h-fit sticky top-0">
           <LeftAside></LeftAside>
         </aside>
         <section className="main col-span-6">
           <Outlet></Outlet>
         </section>
-        <aside className="col-span-3">
+        <aside className="col-span-3 h-fit sticky top-0">
           <RightAside></RightAside>
         </aside>
       </main>
