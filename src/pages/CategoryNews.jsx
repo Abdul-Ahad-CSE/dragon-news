@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import NewsCart from "../components/NewsCart";
 
-
 export default function CategoryNews() {
   const { id } = useParams();
   const data = useLoaderData();
@@ -34,7 +33,7 @@ export default function CategoryNews() {
         Total <span className="text-secondary">{categoryNews.length} </span>News
         Found
       </h2>
-      <div className="grid grid-cols-1">
+      <div className="grid grid-cols-1 gap-3">
         {
           categoryNews.map((news)=>(
             <NewsCart key={news.id} news={news}></NewsCart>
