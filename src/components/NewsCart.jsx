@@ -1,20 +1,25 @@
 import React from "react";
 import { CiBookmark, CiShare2 } from "react-icons/ci";
 import { FaStar, FaEye } from "react-icons/fa";
+import { Link } from "react-router";
 
 const NewsCart = ({ news }) => {
-  const { title, author, thumbnail_url, details, rating, total_view, tags } = news;
+  const {id, title, author, thumbnail_url, details, rating, total_view, tags } =
+    news;
 
   const words = details.split(" ");
   const isLong = words.length > 50; // For testing, use 50 instead of 200
   const shortText = words.slice(0, 50).join(" ");
 
   // Format date
-  const publishedDate = new Date(author.published_date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
+  const publishedDate = new Date(author.published_date).toLocaleDateString(
+    "en-US",
+    {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    }
+  );
 
   return (
     <div className="card bg-base-100 shadow-xl ">
@@ -52,7 +57,7 @@ const NewsCart = ({ news }) => {
         <p className="text-sm text-gray-700 mb-3">
           {shortText}...
           {isLong && (
-            <span className="text-blue-500 font-semibold ml-2">See More</span>
+            <Link to={`/news-details/${id}`} className="text-blue-500 font-semibold ml-2">See More</Link>
           )}
         </p>
 
